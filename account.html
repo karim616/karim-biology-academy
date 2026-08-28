@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Account | Karim Biology Academy</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(98,255,114,0.12),
+                    transparent 35%
+                ),
+                #030705;
+
+            color: #f4f8f3;
+
+            font-family: "Inter", sans-serif;
+
+        }
+
+
+        .account-box {
+
+            width: 100%;
+
+            max-width: 480px;
+
+            padding: 45px;
+
+            border-radius: 24px;
+
+            background:
+                rgba(9,21,13,0.88);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.18);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.5);
+
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .green {
+            color: #62ff72;
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #9ba99e;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-top: 12px;
+
+        }
+
+
+        .course-box {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(98,255,114,0.06);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.15);
+
+        }
+
+
+        .course-label {
+
+            color: #62ff72;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        #courseName {
+
+            margin-top: 8px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+        }
+
+
+        #coursePrice {
+
+            margin-top: 5px;
+
+            color: #9ba99e;
+
+            font-size: 13px;
+
+        }
+
+
+        form {
+
+            margin-top: 25px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #c9d2cb;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            outline: none;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            color: white;
+
+            font-family: inherit;
+
+        }
+
+
+        input:focus {
+
+            border-color:
+                rgba(98,255,114,0.5);
+
+        }
+
+
+        .continue-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #62ff72;
+
+            color: #041006;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+        }
+
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #9ba99e;
+
+            font-size: 12px;
+
+            text-decoration: none;
+
+        }
+
+
+        .back:hover {
+            color: #62ff72;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="account-box">
+
+    <div class="logo">
+        🧬
+    </div>
+
+
+    <h1>
+        Create Your <span class="green">Account</span>
+    </h1>
+
+
+    <p class="subtitle">
+
+        Create your student account before
+        continuing to payment.
+
+    </p>
+
+
+    <div class="course-box">
+
+        <div class="course-label">
+            SELECTED COURSE
+        </div>
+
+        <div id="courseName">
+            Loading...
+        </div>
+
+        <div id="coursePrice">
+            Loading...
+        </div>
+
+    </div>
+
+
+    <form id="accountForm">
+
+        <label for="name">
+            Full Name
+        </label>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Enter your full name"
+            required
+        >
+
+
+        <label for="email">
+            Email Address
+        </label>
+
+        <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label for="password">
+            Create Password
+        </label>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Create a password"
+            minlength="6"
+            required
+        >
+
+
+        <button
+            type="submit"
+            class="continue-btn"
+        >
+            Continue to Payment →
+        </button>
+
+    </form>
+
+
+    <a
+        href="index.html#courses"
+        class="back"
+    >
+        ← Back to Courses
+    </a>
+
+</div>
+
+
+<script>
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const course =
+        params.get("course");
+
+    const price =
+        params.get("price");
+
+
+    const courses = {
+
+        olevel: "O Level Biology",
+
+        asbiology: "AS Biology",
+
+        combined: "Combined Biology"
+
+    };
+
+
+    if (!course || !price || !courses[course]) {
+
+        document.getElementById("courseName").textContent =
+            "No course selected";
+
+        document.getElementById("coursePrice").textContent =
+            "Please return to the courses page.";
+
+    }
+
+    else {
+
+        document.getElementById("courseName").textContent =
+            courses[course];
+
+        document.getElementById("coursePrice").textContent =
+            Number(price).toLocaleString() + " EGP";
+
+    }
+
+
+    document
+        .getElementById("accountForm")
+        .addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (
+                    !course ||
+                    !price ||
+                    !courses[course]
+                ) {
+
+                    alert(
+                        "Please select a course first."
+                    );
+
+                    return;
+
+                }
+
+
+                const student = {
+
+                    name:
+                        document.getElementById("name").value,
+
+                    email:
+                        document.getElementById("email").value,
+
+                    password:
+                        document.getElementById("password").value,
+
+                    course:
+                        course,
+
+                    courseName:
+                        courses[course],
+
+                    price:
+                        price
+
+                };
+
+
+                localStorage.setItem(
+                    "karimStudent",
+                    JSON.stringify(student)
+                );
+
+
+                window.location.href =
+                    "payment.html?course=" +
+                    encodeURIComponent(course) +
+                    "&price=" +
+                    encodeURIComponent(price);
+
+            }
+        );
+
+</script>
+
+
+</body>
+
+</html>

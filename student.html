@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Area | Karim Biology Academy</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --bg: #030705;
+            --panel: rgba(9, 21, 13, 0.82);
+            --green: #62ff72;
+            --green-bright: #9cff8d;
+            --text: #f4f8f3;
+            --muted: #9ba99e;
+            --border: rgba(98,255,114,0.15);
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(98,255,114,0.09),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(0,180,70,0.06),
+                    transparent 30%
+                ),
+
+                var(--bg);
+
+            color: var(--text);
+
+            font-family: "Inter", sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           BACKGROUND
+        ========================================== */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: -1;
+
+        }
+
+
+        .glow {
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            opacity: 0.18;
+
+            background: var(--green);
+
+        }
+
+
+        .glow-1 {
+
+            top: 10%;
+
+            right: -100px;
+
+        }
+
+
+        .glow-2 {
+
+            bottom: 10%;
+
+            left: -120px;
+
+            opacity: 0.1;
+
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================== */
+
+        .navbar {
+
+            height: 76px;
+
+            width: 100%;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            background:
+                rgba(3,7,5,0.88);
+
+            backdrop-filter: blur(20px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.05);
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .logo-icon {
+
+            font-size: 28px;
+
+            filter:
+                drop-shadow(
+                    0 0 10px
+                    rgba(98,255,114,0.5)
+                );
+
+        }
+
+
+        .logo-name {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .logo-subtitle {
+
+            margin-top: 2px;
+
+            color: var(--green);
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .logout-btn {
+
+            padding: 10px 18px;
+
+            border-radius: 9px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            background:
+                rgba(255,255,255,0.03);
+
+            color: #c8d0ca;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .logout-btn:hover {
+
+            border-color:
+                rgba(98,255,114,0.4);
+
+            color: var(--green);
+
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================== */
+
+        main {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding:
+                125px 5% 80px;
+
+        }
+
+
+        /* =========================================
+           WELCOME
+        ========================================== */
+
+        .welcome {
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .welcome-label {
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .welcome h1 {
+
+            margin-top: 12px;
+
+            font-size:
+                clamp(35px,5vw,58px);
+
+            letter-spacing: -2px;
+
+        }
+
+
+        .welcome h1 span {
+
+            color: var(--green);
+
+        }
+
+
+        .welcome p {
+
+            margin-top: 12px;
+
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           COURSE HERO
+        ========================================== */
+
+        .course-hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 35px;
+
+            border-radius: 22px;
+
+            background:
+
+                radial-gradient(
+                    circle at 85% 50%,
+                    rgba(98,255,114,0.1),
+                    transparent 35%
+                ),
+
+                var(--panel);
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.3);
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .course-label {
+
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 5px;
+
+            background:
+                rgba(98,255,114,0.08);
+
+            color: var(--green);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .course-hero h2 {
+
+            margin-top: 15px;
+
+            font-size: 30px;
+
+        }
+
+
+        .course-hero p {
+
+            margin-top: 10px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        .course-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+            color: #aebbb2;
+
+            font-size: 11px;
+
+        }
+
+
+        .status-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 12px
+                var(--green);
+
+        }
+
+
+        /* =========================================
+           CONTENT GRID
+        ========================================== */
+
+        .section-title {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .section-title span {
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .section-title h2 {
+
+            margin-top: 8px;
+
+            font-size: 25px;
+
+        }
+
+
+        .content-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        /* =========================================
+           CONTENT CARDS
+        ========================================== */
+
+        .content-card {
+
+            min-height: 220px;
+
+            padding: 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            border-radius: 18px;
+
+            background:
+                rgba(9,21,13,0.72);
+
+            border:
+                1px solid
+                var(--border);
+
+            transition:
+                transform 0.3s,
+                border-color 0.3s,
+                box-shadow 0.3s;
+
+        }
+
+
+        .content-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(98,255,114,0.4);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.35);
+
+        }
+
+
+        .content-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(98,255,114,0.08);
+
+            font-size: 23px;
+
+        }
+
+
+        .content-card h3 {
+
+            margin-top: 22px;
+
+            font-size: 18px;
+
+        }
+
+
+        .content-card p {
+
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .open-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: fit-content;
+
+            margin-top: 20px;
+
+            padding: 10px 15px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(98,255,114,0.08);
+
+            color: var(--green);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+
+        }
+
+
+        .open-btn:hover {
+
+            background:
+                var(--green);
+
+            color: #041006;
+
+        }
+
+
+        /* =========================================
+           PROGRESS
+        ========================================== */
+
+        .progress-section {
+
+            margin-top: 45px;
+
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(9,21,13,0.72);
+
+            border:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .progress-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+
+        .progress-header h3 {
+
+            font-size: 16px;
+
+        }
+
+
+        .progress-number {
+
+            color: var(--green);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .progress-bar {
+
+            width: 100%;
+
+            height: 8px;
+
+            margin-top: 18px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            overflow: hidden;
+
+        }
+
+
+        .progress-fill {
+
+            width: 0%;
+
+            height: 100%;
+
+            border-radius: inherit;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 15px
+                rgba(98,255,114,0.5);
+
+            transition:
+                width 1.2s ease;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+
+            padding:
+                30px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.05);
+
+            color: #5f6b63;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 900px) {
+
+            .content-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                padding: 0 20px;
+
+            }
+
+
+            .logo-name {
+
+                font-size: 15px;
+
+            }
+
+
+            main {
+
+                padding:
+                    110px 20px 60px;
+
+            }
+
+
+            .course-hero {
+
+                padding: 25px;
+
+            }
+
+
+            .content-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            footer {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND
+========================================== -->
+
+<div class="background">
+
+    <div class="glow glow-1"></div>
+
+    <div class="glow glow-2"></div>
+
+</div>
+
+
+<!-- =========================================
+     NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        <div class="logo-icon">
+            🧬
+        </div>
+
+
+        <div>
+
+            <div class="logo-name">
+                KARIM
+            </div>
+
+            <div class="logo-subtitle">
+                BIOLOGY ACADEMY
+            </div>
+
+        </div>
+
+    </a>
+
+
+    <button
+        class="logout-btn"
+        id="logoutButton"
+    >
+        Log Out
+    </button>
+
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main>
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <span class="welcome-label">
+            STUDENT AREA
+        </span>
+
+
+        <h1>
+
+            Welcome,
+
+            <span id="studentName">
+                Student
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Your Biology learning environment.
+            Continue your lessons, review your resources,
+            and prepare for your exams.
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         COURSE
+    ========================================== -->
+
+    <section class="course-hero">
+
+
+        <span class="course-label">
+            YOUR COURSE
+        </span>
+
+
+        <h2 id="courseName">
+            Loading course...
+        </h2>
+
+
+        <p id="courseDescription">
+            Loading your course information...
+        </p>
+
+
+        <div class="course-status">
+
+            <span class="status-dot"></span>
+
+            Course Access Active
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================
+         CONTENT
+    ========================================== -->
+
+    <section>
+
+
+        <div class="section-title">
+
+            <span>
+                LEARNING HUB
+            </span>
+
+            <h2>
+                Your Course Content
+            </h2>
+
+        </div>
+
+
+        <div class="content-grid">
+
+
+            <!-- LESSONS -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        🎓
+                    </div>
+
+
+                    <h3>
+                        Lessons
+                    </h3>
+
+
+                    <p>
+                        Access your Biology lessons
+                        and learn each topic step-by-step.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="lessons.html"
+                    class="open-btn"
+                >
+                    Open Lessons →
+                </a>
+
+
+            </article>
+
+
+            <!-- FILES -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        📚
+                    </div>
+
+
+                    <h3>
+                        Study Files
+                    </h3>
+
+
+                    <p>
+                        Access your course notes,
+                        diagrams, worksheets and study material.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="files.html"
+                    class="open-btn"
+                >
+                    Open Files →
+                </a>
+
+
+            </article>
+
+
+            <!-- PAST PAPERS -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Past Papers
+                    </h3>
+
+
+                    <p>
+                        Practice with exam-style questions
+                        and previous examination papers.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="past-papers.html"
+                    class="open-btn"
+                >
+                    Open Papers →
+                </a>
+
+
+            </article>
+
+
+            <!-- EXAMS -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        🎯
+                    </div>
+
+
+                    <h3>
+                        Exams
+                    </h3>
+
+
+                    <p>
+                        Test your knowledge with
+                        Biology exams and assessments.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="exams.html"
+                    class="open-btn"
+                >
+                    Start Exam →
+                </a>
+
+
+            </article>
+
+
+            <!-- VIDEO LESSONS -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        🎥
+                    </div>
+
+
+                    <h3>
+                        Video Lessons
+                    </h3>
+
+
+                    <p>
+                        Watch visual Biology explanations
+                        designed to make difficult concepts easier.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="videos.html"
+                    class="open-btn"
+                >
+                    Watch Videos →
+                </a>
+
+
+            </article>
+
+
+            <!-- RESOURCES -->
+
+            <article class="content-card">
+
+
+                <div>
+
+                    <div class="content-icon">
+                        🔬
+                    </div>
+
+
+                    <h3>
+                        Biology Resources
+                    </h3>
+
+
+                    <p>
+                        Explore additional diagrams,
+                        revision material and useful resources.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="resources.html"
+                    class="open-btn"
+                >
+                    View Resources →
+                </a>
+
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================
+         PROGRESS
+    ========================================== -->
+
+    <section class="progress-section">
+
+
+        <div class="progress-header">
+
+            <h3>
+                Course Progress
+            </h3>
+
+
+            <span
+                class="progress-number"
+                id="progressNumber"
+            >
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <span>
+        © 2026 Karim Biology Academy
+    </span>
+
+
+    <span>
+        Student Learning Portal
+    </span>
+
+</footer>
+
+
+<script>
+
+    /* =========================================
+       CHECK STUDENT ACCOUNT
+    ========================================== */
+
+    const studentData =
+        localStorage.getItem(
+            "karimStudent"
+        );
+
+
+    const paymentStatus =
+        localStorage.getItem(
+            "karimPaymentStatus"
+        );
+
+
+    if (!studentData || paymentStatus !== "paid") {
+
+        window.location.href =
+            "index.html#courses";
+
+    }
+
+
+    /* =========================================
+       LOAD STUDENT
+    ========================================== */
+
+    let student;
+
+
+    try {
+
+        student =
+            JSON.parse(studentData);
+
+    }
+
+    catch (error) {
+
+        localStorage.removeItem(
+            "karimStudent"
+        );
+
+        window.location.href =
+            "index.html#courses";
+
+    }
+
+
+    /* =========================================
+       DISPLAY NAME
+    ========================================== */
+
+    document.getElementById(
+        "studentName"
+    ).textContent =
+        student.name || "Student";
+
+
+    /* =========================================
+       DISPLAY COURSE
+    ========================================== */
+
+    document.getElementById(
+        "courseName"
+    ).textContent =
+        student.courseName || "Biology Course";
+
+
+    /* =========================================
+       COURSE DESCRIPTION
+    ========================================== */
+
+    const descriptions = {
+
+        olevel:
+            "Your complete O Level Biology learning pathway with structured lessons, exam preparation and revision resources.",
+
+        asbiology:
+            "Your AS Biology course with advanced Biology concepts, structured lessons and focused examination preparation.",
+
+        combined:
+            "Your Combined Biology pathway with major Biology topics, structured learning and examination preparation."
+
+    };
+
+
+    document.getElementById(
+        "courseDescription"
+    ).textContent =
+        descriptions[student.course] ||
+        "Your Biology learning course is ready.";
+
+
+    /* =========================================
+       PROGRESS
+    ========================================== */
+
+    const progress =
+        Number(
+            localStorage.getItem(
+                "karimCourseProgress"
+            )
+        ) || 0;
+
+
+    document.getElementById(
+        "progressNumber"
+    ).textContent =
+        progress + "%";
+
+
+    setTimeout(
+        function() {
+
+            document.getElementById(
+                "progressFill"
+            ).style.width =
+                progress + "%";
+
+        },
+        300
+    );
+
+
+    /* =========================================
+       LOGOUT
+    ========================================== */
+
+    document
+        .getElementById("logoutButton")
+        .addEventListener(
+            "click",
+            function() {
+
+                /*
+                    For the demo we remove the
+                    student session and payment.
+                */
+
+                localStorage.removeItem(
+                    "karimStudent"
+                );
+
+                localStorage.removeItem(
+                    "karimPaymentStatus"
+                );
+
+                localStorage.removeItem(
+                    "karimPaymentMethod"
+                );
+
+                localStorage.removeItem(
+                    "karimPurchasedCourse"
+                );
+
+                localStorage.removeItem(
+                    "karimCourseProgress"
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+</script>
+
+
+</body>
+
+</html>

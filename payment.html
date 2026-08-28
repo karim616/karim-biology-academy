@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment | Karim Biology Academy</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(98,255,114,0.13),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(0,180,70,0.06),
+                    transparent 30%
+                ),
+                #030705;
+
+            color: #f4f8f3;
+
+            font-family: "Inter", sans-serif;
+
+        }
+
+
+        .payment-box {
+
+            width: 100%;
+
+            max-width: 560px;
+
+            padding: 45px;
+
+            border-radius: 24px;
+
+            background:
+                rgba(9,21,13,0.92);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.18);
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,0.55);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .payment-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            top: -150px;
+
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(98,255,114,0.08);
+
+            filter: blur(40px);
+
+            pointer-events: none;
+
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 34px;
+
+            filter:
+                drop-shadow(
+                    0 0 12px
+                    rgba(98,255,114,0.45)
+                );
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+        }
+
+
+        .green {
+
+            color: #62ff72;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #8f9d94;
+
+            font-size: 12px;
+
+            margin-top: 10px;
+
+        }
+
+
+        /* =========================================
+           COURSE SUMMARY
+        ========================================= */
+
+        .summary {
+
+            margin-top: 30px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(98,255,114,0.05);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.15);
+
+        }
+
+
+        .row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 9px 0;
+
+            color: #9ba99e;
+
+            font-size: 13px;
+
+        }
+
+
+        .row strong {
+
+            color: white;
+
+            text-align: right;
+
+        }
+
+
+        .total {
+
+            margin-top: 10px;
+
+            padding-top: 17px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            font-size: 19px;
+
+        }
+
+
+        /* =========================================
+           PAYMENT METHODS
+        ========================================= */
+
+        .payment-methods {
+
+            margin-top: 28px;
+
+        }
+
+
+        .payment-methods h3 {
+
+            font-size: 14px;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .method {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 16px;
+
+            margin-bottom: 10px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            color: #c9d2cb;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.25s,
+                background 0.25s,
+                transform 0.25s;
+
+        }
+
+
+        .method:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(98,255,114,0.3);
+
+        }
+
+
+        .method.selected {
+
+            border-color:
+                rgba(98,255,114,0.65);
+
+            background:
+                rgba(98,255,114,0.08);
+
+            color: white;
+
+        }
+
+
+        .method input {
+
+            accent-color: #62ff72;
+
+            width: 16px;
+
+            height: 16px;
+
+        }
+
+
+        .method-icon {
+
+            font-size: 20px;
+
+        }
+
+
+        .method-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+
+        }
+
+
+        .method-title {
+
+            font-weight: 700;
+
+        }
+
+
+        .method-description {
+
+            color: #758279;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================
+           DEMO NOTICE
+        ========================================= */
+
+        .demo-notice {
+
+            margin-top: 18px;
+
+            padding: 12px 14px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(98,255,114,0.035);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.1);
+
+            color: #829088;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+            text-align: center;
+
+        }
+
+
+        /* =========================================
+           PAY BUTTON
+        ========================================= */
+
+        .pay-btn {
+
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background: #62ff72;
+
+            color: #041006;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s,
+                opacity 0.25s;
+
+        }
+
+
+        .pay-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(98,255,114,0.22);
+
+        }
+
+
+        .pay-btn:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+
+        }
+
+
+        /* =========================================
+           STATUS
+        ========================================= */
+
+        .status {
+
+            display: none;
+
+            text-align: center;
+
+            margin-top: 22px;
+
+        }
+
+
+        .status.show {
+
+            display: block;
+
+        }
+
+
+        .status-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(98,255,114,0.1);
+
+            border:
+                1px solid
+                rgba(98,255,114,0.4);
+
+            color: #62ff72;
+
+            font-size: 28px;
+
+        }
+
+
+        .status h2 {
+
+            font-size: 22px;
+
+        }
+
+
+        .status p {
+
+            margin-top: 8px;
+
+            color: #8f9d94;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .student-area-btn {
+
+            display: inline-flex;
+
+            margin-top: 18px;
+
+            padding: 14px 22px;
+
+            border-radius: 10px;
+
+            background: #62ff72;
+
+            color: #041006;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back {
+
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #758279;
+
+            font-size: 12px;
+
+            text-decoration: none;
+
+            transition: color 0.25s;
+
+        }
+
+
+        .back:hover {
+
+            color: #62ff72;
+
+        }
+
+
+        /* =========================================
+           PROCESSING
+        ========================================= */
+
+        .processing {
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 15px;
+
+            color: #8f9d94;
+
+            font-size: 11px;
+
+        }
+
+
+        .processing.show {
+
+            display: flex;
+
+        }
+
+
+        .spinner {
+
+            width: 14px;
+
+            height: 14px;
+
+            border-radius: 50%;
+
+            border:
+                2px solid
+                rgba(98,255,114,0.2);
+
+            border-top-color:
+                #62ff72;
+
+            animation:
+                spin 0.8s linear infinite;
+
+        }
+
+
+        @keyframes spin {
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 15px;
+
+            }
+
+
+            .payment-box {
+
+                padding: 30px 22px;
+
+            }
+
+
+            h1 {
+
+                font-size: 26px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="payment-box">
+
+
+    <div class="logo">
+        🧬
+    </div>
+
+
+    <h1>
+        Course <span class="green">Payment</span>
+    </h1>
+
+
+    <p class="subtitle">
+        Complete your demo enrollment to access your course.
+    </p>
+
+
+    <!-- =========================================
+         COURSE SUMMARY
+    ========================================== -->
+
+    <div class="summary">
+
+
+        <div class="row">
+
+            <span>
+                Student
+            </span>
+
+            <strong id="studentName">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                Course
+            </span>
+
+            <strong id="courseName">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="row total">
+
+            <span>
+                Total
+            </span>
+
+            <strong
+                id="coursePrice"
+                class="green"
+            >
+                —
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         PAYMENT METHODS
+    ========================================== -->
+
+    <div
+        class="payment-methods"
+        id="paymentSection"
+    >
+
+        <h3>
+            Choose Payment Method
+        </h3>
+
+
+        <label class="method">
+
+            <input
+                type="radio"
+                name="paymentMethod"
+                value="instapay"
+            >
+
+            <span class="method-icon">
+                ⚡
+            </span>
+
+            <span class="method-text">
+
+                <span class="method-title">
+                    InstaPay
+                </span>
+
+                <span class="method-description">
+                    Demo InstaPay payment
+                </span>
+
+            </span>
+
+        </label>
+
+
+        <label class="method">
+
+            <input
+                type="radio"
+                name="paymentMethod"
+                value="ewallet"
+            >
+
+            <span class="method-icon">
+                📱
+            </span>
+
+            <span class="method-text">
+
+                <span class="method-title">
+                    E-Wallet
+                </span>
+
+                <span class="method-description">
+                    Demo mobile wallet payment
+                </span>
+
+            </span>
+
+        </label>
+
+
+        <label class="method">
+
+            <input
+                type="radio"
+                name="paymentMethod"
+                value="card"
+            >
+
+            <span class="method-icon">
+                💳
+            </span>
+
+            <span class="method-text">
+
+                <span class="method-title">
+                    Credit Card
+                </span>
+
+                <span class="method-description">
+                    Demo credit card payment
+                </span>
+
+            </span>
+
+        </label>
+
+
+        <div class="demo-notice">
+
+            This is a demonstration payment.
+            No real money will be charged.
+
+        </div>
+
+
+        <button
+            class="pay-btn"
+            id="payButton"
+        >
+            Pay Now
+        </button>
+
+
+        <div
+            class="processing"
+            id="processing"
+        >
+
+            <span class="spinner"></span>
+
+            Processing demo payment...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         SUCCESS
+    ========================================== -->
+
+    <div
+        class="status"
+        id="successMessage"
+    >
+
+        <div class="status-icon">
+            ✓
+        </div>
+
+
+        <h2>
+            Payment <span class="green">Successful</span>
+        </h2>
+
+
+        <p>
+
+            Your demo enrollment is complete.
+            Your course is now available in your
+            student area.
+
+        </p>
+
+
+        <a
+            href="student.html"
+            class="student-area-btn"
+        >
+            Enter Student Area →
+        </a>
+
+    </div>
+
+
+    <a
+        href="index.html#courses"
+        class="back"
+    >
+        ← Return to Academy
+    </a>
+
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       LOAD STUDENT DATA
+    ========================================== */
+
+    const studentData =
+        localStorage.getItem("karimStudent");
+
+
+    if (!studentData) {
+
+        window.location.href =
+            "index.html#courses";
+
+    }
+
+
+    let student;
+
+    try {
+
+        student =
+            JSON.parse(studentData);
+
+    }
+
+    catch (error) {
+
+        localStorage.removeItem("karimStudent");
+
+        window.location.href =
+            "index.html#courses";
+
+    }
+
+
+    /* =========================================
+       DISPLAY STUDENT INFORMATION
+    ========================================== */
+
+    document.getElementById(
+        "studentName"
+    ).textContent =
+        student.name || "Student";
+
+
+    document.getElementById(
+        "courseName"
+    ).textContent =
+        student.courseName || "Selected Course";
+
+
+    const price =
+        Number(student.price) || 0;
+
+
+    document.getElementById(
+        "coursePrice"
+    ).textContent =
+        price.toLocaleString() + " EGP";
+
+
+    /* =========================================
+       PAYMENT METHOD SELECTION
+    ========================================== */
+
+    const methods =
+        document.querySelectorAll(".method");
+
+
+    methods.forEach(function(method) {
+
+        method.addEventListener(
+            "click",
+            function() {
+
+                methods.forEach(function(item) {
+
+                    item.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+
+                method.classList.add(
+                    "selected"
+                );
+
+
+                const radio =
+                    method.querySelector(
+                        "input"
+                    );
+
+
+                radio.checked = true;
+
+            }
+        );
+
+    });
+
+
+    /* =========================================
+       DEMO PAYMENT
+    ========================================== */
+
+    const payButton =
+        document.getElementById(
+            "payButton"
+        );
+
+
+    const processing =
+        document.getElementById(
+            "processing"
+        );
+
+
+    const paymentSection =
+        document.getElementById(
+            "paymentSection"
+        );
+
+
+    const successMessage =
+        document.getElementById(
+            "successMessage"
+        );
+
+
+    payButton.addEventListener(
+        "click",
+        function() {
+
+
+            const selectedMethod =
+                document.querySelector(
+                    'input[name="paymentMethod"]:checked'
+                );
+
+
+            if (!selectedMethod) {
+
+                alert(
+                    "Please choose a payment method."
+                );
+
+                return;
+
+            }
+
+
+            /* Disable payment button */
+
+            payButton.disabled =
+                true;
+
+
+            /* Show processing */
+
+            processing.classList.add(
+                "show"
+            );
+
+
+            /*
+                DEMO PAYMENT DELAY
+
+                Simulates a real payment
+                being processed.
+            */
+
+            setTimeout(
+                function() {
+
+
+                    /* Save payment status */
+
+                    localStorage.setItem(
+                        "karimPaymentStatus",
+                        "paid"
+                    );
+
+
+                    /* Save payment method */
+
+                    localStorage.setItem(
+                        "karimPaymentMethod",
+                        selectedMethod.value
+                    );
+
+
+                    /* Save purchase information */
+
+                    localStorage.setItem(
+                        "karimPurchasedCourse",
+                        JSON.stringify({
+
+                            course:
+                                student.course,
+
+                            courseName:
+                                student.courseName,
+
+                            price:
+                                student.price
+
+                        })
+                    );
+
+
+                    /* Hide payment section */
+
+                    paymentSection.style.display =
+                        "none";
+
+
+                    /* Show success */
+
+                    successMessage.classList.add(
+                        "show"
+                    );
+
+
+                },
+                1800
+            );
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
